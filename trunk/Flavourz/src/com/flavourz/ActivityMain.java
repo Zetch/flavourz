@@ -23,7 +23,6 @@ public class ActivityMain extends Activity {
 	protected Button buttonMeals;
 	protected Button buttonSearch;
 	protected Button buttonExit;
-	protected DBRestaurant dbRestaurants;
 	
 	
 	/*************************************************************************/
@@ -70,9 +69,6 @@ public class ActivityMain extends Activity {
 				exitApp();
 			}
 		});
-        
-        // Database
-        dbRestaurants = new DBRestaurant(this);
         
     }
     

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="10dip"
+	android:orientation="vertical">
+	
+	<TextView
+		android:id="@+id/id_restaurant_name_label"
+		android:text="@string/label_restaurant_name"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+	<TextView
+		android:id="@+id/id_restaurant_name_value"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Rest. Name"
+		android:textSize="25sp"
+		android:layout_marginBottom="10dp" />
+	<TextView
+		android:id="@+id/id_restaurant_location_label"
+		android:text="@string/label_restaurant_location"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+	<TextView
+		android:id="@+id/id_restaurant_location_value"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Rest. Location"
+		android:textSize="25sp"
+		android:layout_marginBottom="10dp" />
+	
+</LinearLayout>

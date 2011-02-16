@@ -24,5 +24,10 @@
     		android:label="Restaurants">
     	</activity>
     	
+    	<activity
+    		android:name=".ActivityRestaurant"
+    		android:label="Restaurant">
+    	</activity>
+    	
 	</application>
 </manifest> 
