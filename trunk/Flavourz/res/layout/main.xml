@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="15dip"
+    android:background="#0066FF">
+    
+	<TextView  
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content"
+    	android:layout_marginBottom="25dip"
+    	android:gravity="center"
+    	android:textColor="#FFFFFF"
+    	android:textSize="32sp"
+    	android:text="@string/app_name"/>
+    	
+    <Button
+    	android:id="@+id/id_main_rests_button"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:gravity="center"
+    	android:text="@string/label_main_rests_button" />
+    	
+    <Button
+    	android:id="@+id/id_main_meals_button"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:gravity="center"
+    	android:text="@string/label_main_meals_button" />
+    	
+    <Button
+    	android:id="@+id/id_main_search_button"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:gravity="center"
+    	android:text="@string/label_main_search_button" />
+    	
+    <Button
+    	android:id="@+id/id_main_exit_button"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:gravity="center"
+    	android:text="@string/label_main_exit_button" />
+    	
+</LinearLayout>
