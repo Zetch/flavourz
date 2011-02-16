@@ -10,23 +10,24 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.text.style.BulletSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class ActivityRestaurants extends ListActivity {
 	protected ArrayList<String> restList;
 	protected DBRestaurant dbRestaurants = new DBRestaurant(this);
-	protected ArrayAdapter<String> restListAdapter;
+	protected CursorAdapter restListDbAdapter;
 	
 	static final int NEW_REST_DIALOG_ID = 0;
 	
@@ -35,8 +36,41 @@ public class ActivityRestaurants extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		restListAdapter = new ArrayAdapter<String>(this, R.layout.restaurants, getListFromDatabase()); 
-		setListAdapter(restListAdapter);
+		dbRestaurants.openDatabase();
+		restListDbAdapter = new CursorAdapter(this, dbRestaurants.getAllRestaurants()) {
+			
+			@Override
+			public View newView(Context context, Cursor cursor, ViewGroup parent) {
+				LayoutInflater inflater = LayoutInflater.from(context);
+				View v = inflater.inflate(R.layout.restaurants, parent, false);
+				bindView(v, context, cursor);
+				return v;
+			}
+			
+			@Override
+			public void bindView(View view, Context context, Cursor cursor) {
+				TextView restaurant = (TextView) view.findViewById(R.id.id_restaurants_entry);
+				restaurant.setTag(cursor.getString(cursor.getColumnIndex(dbRestaurants.KEY_ROWID)));
+				restaurant.setText(cursor.getString(cursor.getColumnIndex(dbRestaurants.KEY_NAME)) + " (" +
+						cursor.getString(cursor.getColumnIndex(dbRestaurants.KEY_LOCATION)) + ")");
+				restaurant.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						startActivity(new Intent(ActivityRestaurants.this, 
+							ActivityRestaurant.class).putExtra("restID", (String) v.getTag()));
+					}
+				});
+			}
+		};
+		setListAdapter(restListDbAdapter);
+	}
+	
+	/*************************************************************************/
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		dbRestaurants.closeDatabase();
 	}
 	
 	/*************************************************************************/
@@ -103,7 +137,9 @@ public class ActivityRestaurants extends ListActivity {
 							+ textFieldLocation.getText().toString() + ")");
 						insertNewRestaurant(textFieldRestName.getText().toString(),	textFieldLocation.getText().toString());
 						ActivityRestaurants.this.removeDialog(NEW_REST_DIALOG_ID);
-						ActivityRestaurants.this.restListAdapter.notifyDataSetChanged();
+						if (ActivityRestaurants.this.restListDbAdapter.getCursor().requery()) {
+							ActivityRestaurants.this.restListDbAdapter.notifyDataSetChanged();
+						}
 					}
 				});
     		

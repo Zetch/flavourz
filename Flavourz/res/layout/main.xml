@@ -7,7 +7,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="15dip"
-    android:background="#0066FF">
+    android:background="#1177FF">
     
 	<TextView  
     	android:layout_width="fill_parent" 

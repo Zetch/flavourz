@@ -13,6 +13,9 @@
     <string name="label_newrest_title">New Restaurant</string>
     <string name="label_newrest_add_button">Add</string>
     <string name="label_newrest_cancel_button">Cancel</string>
+    
+    <string name="label_restaurant_name">Name</string>
+    <string name="label_restaurant_location">Location</string>
 
 	<!-- Menu Labels -->
 	<!-- ActivityMain Menu -->
