@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, ActivityMain!</string>
+    <string name="app_name">Flavourz</string>
+    
+    <string name="label_main_rests_button">Rests</string>
+    <string name="label_main_meals_button">Meals</string>
+    <string name="label_main_search_button">Search</string>
+    <string name="label_main_exit_button">Exit</string>
+    
+    <string name="label_restaurants_title">Restaurants</string>
+    
+    <string name="label_newrest_title">New Restaurant</string>
+    <string name="label_newrest_add_button">Add</string>
+    <string name="label_newrest_cancel_button">Cancel</string>
+
+	<!-- Menu Labels -->
+	<!-- ActivityMain Menu -->
+    <string name="label_menu_main_about">About</string>
+    <string name="label_menu_main_exit">Exit</string>
+    
+    <!-- ActivityRestaurantsList Menu -->
+    <string name="label_menu_rests_new">New</string>
+    <string name="label_menu_rests_initilizedb">Initialize DB</string>
+    <string name="label_menu_rests_printdb">Print DB</string>
+    
+    
+    <string name="label_about_title_text">About Flavourz</string>
+    <string name="label_about_info_text">This is an application about bla bla...</string>
+    <string name="label_about_exit_button">Back</string>
+</resources>
